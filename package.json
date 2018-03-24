@@ -10,6 +10,7 @@
     "typescript": "^2.7.2"
   },
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "clean": "rm -rf .cache/ && rm -rf dist/"
   }
 }
