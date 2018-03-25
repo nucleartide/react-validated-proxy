@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 
 import Adult from './validations/adult';
 import Child from './validations/child';
-import Validate from './components/Validate';
+import Validate from '..';
 import ValidatedField from './components/ValidatedField';
 
 window.user = {
