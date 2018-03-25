@@ -43,7 +43,6 @@ class Validate<Model extends {}> extends Component<Props<Model>, State> {
   }
 
   flush = () => {
-    console.log('flushing values');
     this.state.model.flush();
     this.setState({ model: this.state.model });
   }
