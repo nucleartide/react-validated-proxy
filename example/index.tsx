@@ -22,6 +22,8 @@ render(
         e.preventDefault();
         flush();
       }}>
+        <h2>Profile</h2>
+
         <ValidatedField
           type="text"
           model={model}
@@ -57,8 +59,25 @@ render(
           setProperty={(name, value) => set(name, parseInt(value, 10))}
         />
 
-        <button type="submit" disabled={isPristine || hasErrors}>Save</button>
-        <button type="button" onClick={reset}>Reset</button>
+        {console.log(Object.keys(model.cache))}
+
+        <div className="ButtonRow">
+          <button
+            className="Save"
+            type="submit"
+            disabled={isPristine || hasErrors}
+          >
+            Save
+          </button>
+
+          <button
+            className="Reset"
+            type="button"
+            onClick={reset}
+          >
+            Reset
+          </button>
+        </div>
       </form>
     )}
   </Validate>,

@@ -23,13 +23,14 @@ const transform = (p: Props): ComputedProps => ({
 });
 
 const component = (p: ComputedProps) => (
-  <>
+  <div className="ValidatedField">
     <label htmlFor={p.property}>{p.property}</label>
     <input
       type={p.type}
       id={p.property}
       value={p.model[p.property]}
       onChange={e => p.setProperty(p.property, e.target.value)}
+      className={p.messages.length > 0 ? 'Error' : null}
     />
 
     {p.messages.length > 0 &&
@@ -37,7 +38,7 @@ const component = (p: ComputedProps) => (
         {p.messages.map(m => <li key={m}>{m}</li>)}
       </ul>
     }
-  </>
+  </div>
 );
 
 // def validated_field(p) do

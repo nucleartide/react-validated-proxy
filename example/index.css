@@ -1,3 +1,115 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+h2 {
+  margin: 1rem 0 1.5rem;
+}
+
+body {
+  background-color: #68ded2;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
 form {
-  background-color: papayawhip;
+  background-color: white;
+  width: 400px;
+  margin: auto;
+  margin-top: 2rem;
+  border-radius: 6px;
+  -webkit-box-shadow: 0px 10px 54px -2px rgba(0,0,0,0.36);
+  -moz-box-shadow: 0px 10px 54px -2px rgba(0,0,0,0.36);
+  box-shadow: 0px 10px 54px -2px rgba(0,0,0,0.36);
+  padding: 2rem;
+}
+
+input {
+  color: #424040;
+  font-weight: bold;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: solid 1px #ccc;
+  width: 100%;
+}
+
+input.Error {
+  border-color: #f74d7d;
+}
+
+input:hover,
+input:active,
+input:focus {
+  outline: solid 2px #5295e3;
+}
+
+.ValidatedField {
+  margin-bottom: 1.5rem;
+}
+
+.ValidatedField label {
+  display: block;
+  color: #ccc;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.ValidatedField ul {
+  color: #f74d7d;
+  font-size: 0.9rem;
+}
+
+button {
+  width: 50%;
+}
+
+.Save,
+.Reset {
+  background-color: #68ded2;
+  padding: 1rem;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  border: solid 2px #68ded2;
+}
+
+.Save[disabled] {
+  background-color: #d3dedd !important;
+  color: white !important;
+  border-color: #d3dedd !important;
+  cursor: not-allowed !important;
+}
+
+.Save:hover,
+.Reset:hover {
+  background-color: #58B8AE;
+  border-color: #58B8AE;
+  cursor: pointer;
+}
+
+.Save:active,
+.Reset:hover {
+  background-color: #44918A;
+  border-color: #44918A;
+}
+
+.Save,
+.Reset {
+  width: 47%;
+}
+
+.ButtonRow {
+  display: flex;
+  justify-content: space-between;
 }
