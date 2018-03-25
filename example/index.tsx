@@ -6,7 +6,7 @@ import Child from './validations/child';
 import Validate from './components/Validate';
 import ValidatedField from './components/ValidatedField';
 
-const user = {
+window.user = {
   firstName: 'Billy',
   lastName: 'Bob',
   email: '',
@@ -20,19 +20,48 @@ const user = {
 //   </div>
 
 render(
-  <Validate model={user} as={Adult}>
-    {({ model, set, reset }) => (
-      <form>
-        {Object.keys(user).map(k => (
-          <ValidatedField
-            key={k}
-            model={model}
-            property={k}
-            setProperty={set}
-          />
-        ))}
+  <Validate model={window.user} as={Adult}>
+    {({ model, set, reset, isPristine, hasErrors, flush }) => (
+      <form onSubmit={e => {
+        e.preventDefault();
+        flush();
+      }}>
+        <ValidatedField
+          type="text"
+          model={model}
+          property="firstName"
+          setProperty={set}
+        />
 
-        <button type="button">Save</button>
+        <ValidatedField
+          type="text"
+          model={model}
+          property="lastName"
+          setProperty={set}
+        />
+
+        <ValidatedField
+          type="text"
+          model={model}
+          property="email"
+          setProperty={set}
+        />
+
+        <ValidatedField
+          type="text"
+          model={model}
+          property="job"
+          setProperty={set}
+        />
+
+        <ValidatedField
+          type="number"
+          model={model}
+          property="age"
+          setProperty={(name, value) => set(name, parseInt(value, 10))}
+        />
+
+        <button type="submit" disabled={isPristine || hasErrors}>Save</button>
         <button type="button" onClick={reset}>Reset</button>
       </form>
     )}

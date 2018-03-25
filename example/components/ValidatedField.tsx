@@ -5,6 +5,7 @@ interface Props {
   model: BufferedProxy
   property: string
   setProperty: <T>(name: string, value: T) => void
+  type: 'text' | 'number'
 }
 
 interface ComputedProps extends Props {
@@ -25,7 +26,7 @@ const component = (p: ComputedProps) => (
   <>
     <label htmlFor={p.property}>{p.property}</label>
     <input
-      type="text"
+      type={p.type}
       id={p.property}
       value={p.model[p.property]}
       onChange={e => p.setProperty(p.property, e.target.value)}
