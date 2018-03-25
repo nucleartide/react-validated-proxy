@@ -14,11 +14,6 @@ window.user = {
   age: 10,
 };
 
-// 	<div class="row">
-//   	<button {{action save changeset}} disabled={{changeset.isInvalid}} class="button-primary">Save</button>
-//   	<button {{action reset changeset}}>Reset</button>
-//   </div>
-
 render(
   <Validate model={window.user} as={Adult}>
     {({ model, set, reset, isPristine, hasErrors, flush }) => (

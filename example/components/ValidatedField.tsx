@@ -4,7 +4,7 @@ import { BufferedProxy } from 'validated-proxy';
 interface Props {
   model: BufferedProxy
   property: string
-  setProperty: <T>(name: string, value: T) => void
+  setProperty: (name: string, value: string) => void
   type: 'text' | 'number'
 }
 
