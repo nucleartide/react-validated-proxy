@@ -21,18 +21,6 @@ interface State {
   model: BufferedProxy
 }
 
-/*
-class Stopgap extends BufferedProxy {
-  public get(key: string) {
-    if (hasOwnProperty(this.cache, key)) {
-      return this.cache[key].value;
-    }
-
-    return this.target[key];
-  }
-}
-*/
-
 class Validate<Model extends {}> extends Component<Props<Model>, State> {
   constructor(p: Props<Model>) {
     super(p);
