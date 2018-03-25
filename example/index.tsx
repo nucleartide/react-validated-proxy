@@ -14,6 +14,7 @@ window.user = {
   age: 10,
 };
 
+// Try swapping `as={Adult}` with `as={Child}`.
 render(
   <Validate model={window.user} as={Adult}>
     {({ model, set, reset, isPristine, hasErrors, flush }) => (
