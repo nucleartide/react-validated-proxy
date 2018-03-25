@@ -12,7 +12,9 @@ interface ComputedProps extends Props {
 }
 
 const transform = (p: Props): ComputedProps => ({
-  messages: p.model.errored[p.property] && p.model.errored[p.property].messages || [],
+  messages: p.model.errored[p.property]
+    && p.model.errored[p.property].messages
+    || [],
   ...p,
 });
 
