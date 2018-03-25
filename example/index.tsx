@@ -21,17 +21,20 @@ const user = {
 
 render(
   <Validate model={user} as={Adult}>
-    {(model, setProperty) => (
-      <>
+    {({ model, set, reset }) => (
+      <form>
         {Object.keys(user).map(k => (
           <ValidatedField
             key={k}
             model={model}
             property={k}
-            setProperty={setProperty}
+            setProperty={set}
           />
         ))}
-      </>
+
+        <button type="button">Save</button>
+        <button type="button" onClick={reset}>Reset</button>
+      </form>
     )}
   </Validate>,
   document.getElementById('app')

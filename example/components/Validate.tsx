@@ -3,10 +3,13 @@ import { Component } from 'react';
 import { IValidationMap } from 'validated-proxy/dist/types/utils/validator-lookup';
 import { validatedProxy, BufferedProxy } from 'validated-proxy';
 
-type RenderProp = (
-  model: BufferedProxy,
-  setModel: <T>(name: string, value: T) => void
-) => JSX.Element
+interface BufferedProxyProps {
+  model: BufferedProxy
+  set: <T>(name: string, value: T) => void
+  reset: () => void
+}
+
+type RenderProp = (p: BufferedProxyProps) => JSX.Element
 
 interface Props<T> {
   model: T
@@ -18,6 +21,18 @@ interface State {
   model: BufferedProxy
 }
 
+/*
+class Stopgap extends BufferedProxy {
+  public get(key: string) {
+    if (hasOwnProperty(this.cache, key)) {
+      return this.cache[key].value;
+    }
+
+    return this.target[key];
+  }
+}
+*/
+
 class Validate<Model extends {}> extends Component<Props<Model>, State> {
   constructor(p: Props<Model>) {
     super(p);
@@ -26,13 +41,22 @@ class Validate<Model extends {}> extends Component<Props<Model>, State> {
     };
   }
 
-  setModel = <V extends {}>(name: string, value: V) => {
+  set = <V extends {}>(name: string, value: V) => {
     this.state.model[name] = value;
     this.setState({ model: this.state.model });
   }
 
+  reset = () => {
+    this.state.model.reset();
+    this.setState({ model: this.state.model });
+  }
+
   render() {
-    return this.props.children(this.state.model, this.setModel);
+    return this.props.children({
+      model: this.state.model,
+      set: this.set,
+      reset: this.reset,
+    });
   }
 }
 

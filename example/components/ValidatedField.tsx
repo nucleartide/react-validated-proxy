@@ -12,7 +12,8 @@ interface ComputedProps extends Props {
 }
 
 const transform = (p: Props): ComputedProps => ({
-  messages: p.model.cache[p.property]
+  messages: p.model.cache
+    && p.model.cache[p.property]
     && p.model.cache[p.property].validations
       .filter(v => !v.validation)
       .map(v => v.message)
