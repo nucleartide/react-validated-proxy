@@ -2,9 +2,9 @@ import * as React from 'react';
 import { BufferedProxy } from 'validated-proxy';
 
 interface Props {
-  property: string
   model: BufferedProxy
-  setModel: <T>(name: string, value: T) => void
+  property: string
+  setProperty: <T>(name: string, value: T) => void
 }
 
 interface ComputedProps extends Props {
@@ -12,8 +12,10 @@ interface ComputedProps extends Props {
 }
 
 const transform = (p: Props): ComputedProps => ({
-  messages: p.model.errored[p.property]
-    && p.model.errored[p.property].messages
+  messages: p.model.cache[p.property]
+    && p.model.cache[p.property].validations
+      .filter(v => !v.validation)
+      .map(v => v.message)
     || [],
   ...p,
 });
@@ -25,7 +27,7 @@ const component = (p: ComputedProps) => (
       type="text"
       id={p.property}
       value={p.model[p.property]}
-      onChange={e => p.setModel(p.property, e.target.value)}
+      onChange={e => p.setProperty(p.property, e.target.value)}
     />
 
     {p.messages.length > 0 &&

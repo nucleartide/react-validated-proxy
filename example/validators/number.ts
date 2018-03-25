@@ -15,7 +15,9 @@ type Options =
   | GreaterThanOrEqual
   ;
 
-const welp = (x: never): never => { throw new Error('Unexpected object.') };
+const welp = (x: never): never => {
+  throw new Error('Unexpected object.');
+};
 
 const message = (o: Options, key: string, newValue: number): string => {
   switch (o.op) {

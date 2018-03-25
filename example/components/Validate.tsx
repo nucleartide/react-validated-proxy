@@ -10,7 +10,7 @@ type RenderProp = (
 
 interface Props<T> {
   model: T
-  validations: IValidationMap
+  as: IValidationMap
   children: RenderProp
 }
 
@@ -22,7 +22,7 @@ class Validate<Model extends {}> extends Component<Props<Model>, State> {
   constructor(p: Props<Model>) {
     super(p);
     this.state = {
-      model: validatedProxy(p.model, { validations: p.validations }),
+      model: validatedProxy(p.model, { validations: p.as }),
     };
   }
 
@@ -32,7 +32,7 @@ class Validate<Model extends {}> extends Component<Props<Model>, State> {
   }
 
   render() {
-    return <div></div>;
+    return this.props.children(this.state.model, this.setModel);
   }
 }
 

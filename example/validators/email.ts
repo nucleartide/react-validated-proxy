@@ -4,7 +4,7 @@ const Email = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\
 const validateEmail =
   () =>
   (key: string, newValue: string, oldValue: string) => ({
-    message: `${newValue} isn't an email.`,
+    message: 'Invalid email.',
     validation: Email.test(newValue),
   });
 
