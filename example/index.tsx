@@ -59,8 +59,6 @@ render(
           setProperty={(name, value) => set(name, parseInt(value, 10))}
         />
 
-        {console.log(Object.keys(model.cache))}
-
         <div className="ButtonRow">
           <button
             className="Save"
