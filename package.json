@@ -15,5 +15,31 @@
     "clean": "rm -rf .cache/ && rm -rf dist/ && rm -rf node_modules/",
     "flow": "tsc",
     "build": "tsc -p tsconfig.build.json"
-  }
+  },
+  "name": "react-validated-proxy",
+  "description": "An approach to form validation in React that makes use of [ES6 Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy), by way of [**@poteto**](https://github.com/poteto)'s [`validated-proxy`](https://github.com/poteto/validated-proxy) library.",
+  "version": "0.1.0",
+  "main": "build/index.js",
+  "directories": {
+    "example": "example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nucleartide/react-boilerplate.git"
+  },
+  "keywords": [
+    "proxy",
+    "typescript",
+    "es2015",
+    "validations",
+    "changeset",
+    "react",
+    "reactjs"
+  ],
+  "author": "Jason Tu <jasontu4@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nucleartide/react-boilerplate/issues"
+  },
+  "homepage": "https://github.com/nucleartide/react-boilerplate#readme"
 }
