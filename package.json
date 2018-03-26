@@ -13,6 +13,7 @@
   "scripts": {
     "start": "parcel index.html",
     "clean": "rm -rf .cache/ && rm -rf dist/ && rm -rf node_modules/",
-    "tsc": "tsc"
+    "flow": "tsc",
+    "build": "tsc -p tsconfig.build.json"
   }
 }
